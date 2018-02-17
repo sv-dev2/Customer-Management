@@ -6,8 +6,9 @@ export class CustomerService {
 
   public CustomerModel: Customer[];
   public MessageModel: Message[];
+  public customer:Customer;
   constructor(){
-     
+    
   }
 
   getCustomers(): Customer[] {
@@ -17,8 +18,19 @@ export class CustomerService {
   findByIdCustomer(id): void {
    
   }
-  createCustomer(data): void {
-   
+  createCustomer(data): void {    
+    this.customer=new Customer();
+    this.customer.id=this.CustomerModel.length+1;
+    this.customer.name=data.name;
+    this.customer.address=data.address;
+    this.customer.city=data.city;
+    this.customer.zip=data.zip;
+    this.customer.country=data.country;
+    this.customer.phone=data.phone;
+    this.customer.email=data.email;
+    this.customer.createdAt=new Date();
+    this.customer.updatedAt=new Date();
+    this.CustomerModel.push(this.customer);
   }
   replaceByIdCustomer(id, data): void {
    

@@ -1,11 +1,11 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div class="example-container mat-elevation-z8">
-  <div class="example-header">
-    <!-- <mat-form-field>
+<div class="example-container mat-elevation-z2">
+  <!--<div class="example-header">
+     <mat-form-field>
       <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
-    </mat-form-field> -->
+    </mat-form-field>
     <button style="margin-left:5%" mat-raised-button (click)="openDialog()">Add Customer</button>
-  </div>
+  </div> -->
   
   <mat-table #table [dataSource]="dataSource" matSort>
 
@@ -50,7 +50,19 @@
       <mat-cell *matCellDef="let element"> {{element.email}} </mat-cell>
     </ng-container>
 
-  
+    <ng-container style="width:300px" matColumnDef="actionsColumn">
+      <mat-header-cell  *matHeaderCellDef>
+        <div class="example-header">       
+          <button  mat-raised-button (click)="openDialog()">Add Customer</button>
+        </div>
+      </mat-header-cell>
+      <mat-cell *matCellDef="let row">
+          <div class="example-header" style="width:300px">
+          <button style="display:inline-block;min-width:60px"  mat-raised-button (click)="openDialog(row)">Edit</button>
+          <button style="display:inline-block;min-width:60px"   mat-raised-button (click)="cancelOrDelete()">Delete</button>
+          </div>
+      </mat-cell>
+  </ng-container>
 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>

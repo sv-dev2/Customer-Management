@@ -12,7 +12,7 @@ import { Customer } from '../Models/CustomerModel';
 export class AppComponent {
   public CustomerModel: Customer[];
   public customer:Customer;
-  displayedColumns = ['name', 'address', 'city','zip','country','phone','email'];
+  displayedColumns = ['name', 'address', 'city','zip','country','phone','email','actionsColumn'];
   dataSource= new MatTableDataSource(this.customerService.getCustomers());
   constructor(private customerService: CustomerService,public dialog: MatDialog){
     this.customer=new Customer();
@@ -33,17 +33,26 @@ export class AppComponent {
     filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
     this.dataSource.filter = filterValue;
   }
-  openDialog(): void {
+  openDialog(data:any): void {
+    debugger;
+    if(data!=undefined)
+    {
+      this.customer=data;
+    }
     let dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
       width: '250px',
       data: { name: this.customer.name,address: this.customer.address ,city: this.customer.city
       ,zip:this.customer.zip,country:this.customer.country,phone:this.customer.phone,email:this.customer.email
       }
     });
+dialogRef.beforeClose().subscribe(result => {
 
+
+});
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      //this.animal = result;
+      this.customerService.createCustomer(result);
+      this.dataSource= new MatTableDataSource(this.customerService.getCustomers());
     });
   }
 }

@@ -1,8 +1,8 @@
 /* Structure */
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 .example-container {
-    display: flex;
-    flex-direction: column;
+    display: block;
+  
     min-width: 300px;
   }
   
