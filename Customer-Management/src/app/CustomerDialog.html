@@ -1,0 +1,35 @@
+
+<div mat-dialog-content>
+  <p>Name</p>
+  <mat-form-field>
+    <input matInput [(ngModel)]="data.name">
+  </mat-form-field>
+  <p>Address</p>
+  <mat-form-field>
+    <input matInput [(ngModel)]="data.address">
+  </mat-form-field>
+  <p>City</p>
+  <mat-form-field>
+    <input matInput [(ngModel)]="data.city">
+  </mat-form-field>
+  <p>Zip</p>
+  <mat-form-field>
+    <input matInput [(ngModel)]="data.zip">
+  </mat-form-field>
+  <p>Country</p>
+  <mat-form-field>
+    <input matInput [(ngModel)]="data.country">
+  </mat-form-field>
+  <p>Phone</p>
+  <mat-form-field>
+    <input matInput [(ngModel)]="data.phone">
+  </mat-form-field>
+  <p>Email</p>
+  <mat-form-field>
+    <input matInput [(ngModel)]="data.email">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button [mat-dialog-close]="data.name" cdkFocusInitial>Ok</button>
+</div>

@@ -1,20 +1,65 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+<div class="example-container mat-elevation-z8">
+  <div class="example-header">
+    <!-- <mat-form-field>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+    </mat-form-field> -->
+    <button style="margin-left:5%" mat-raised-button (click)="openDialog()">Add Customer</button>
+  </div>
+  
+  <mat-table #table [dataSource]="dataSource" matSort>
+
+  
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+    </ng-container>
+
+    <!-- address Column -->
+    <ng-container matColumnDef="address">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> address </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.address}} </mat-cell>
+    </ng-container>
+
+    <!-- city Column -->
+    <ng-container matColumnDef="city">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> city </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.city}} </mat-cell>
+    </ng-container>
+
+      <!-- zip Column -->
+      <ng-container matColumnDef="zip">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> zip </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.zip}} </mat-cell>
+      </ng-container>
+        <!-- country Column -->
+    <ng-container matColumnDef="country">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> country </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.country}} </mat-cell>
+    </ng-container>
+      <!-- phone Column -->
+      <ng-container matColumnDef="phone">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> phone </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.phone}} </mat-cell>
+      </ng-container>
+        <!-- email Column -->
+    <ng-container matColumnDef="email">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> email </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.email}} </mat-cell>
+    </ng-container>
+
+  
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    
+  </mat-table>
+  <mat-paginator #paginator [length]="100"
+              [pageSize]="10"
+              [pageSizeOptions]="[5, 10, 25, 100]" >
+</mat-paginator>
+<!-- [showFirstLastButtons]="true" -->
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
 
