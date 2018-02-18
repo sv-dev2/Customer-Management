@@ -3,7 +3,8 @@ import { CustomerService } from '../Services/customer-service.service';
 import {MatTableDataSource,MatSort,MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import { Customer } from '../Models/CustomerModel';
 import {MatSnackBar} from '@angular/material';
-
+import { Message } from '@angular/compiler/src/i18n/i18n_ast';
+import { Messages } from '../Models/MessageModel';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -12,12 +13,16 @@ import {MatSnackBar} from '@angular/material';
 })
 export class AppComponent {
   public CustomerModel: Customer[];
+  public MessageModel: Messages[];
   public customer:Customer;
+  public messages:Messages;
   public arrayLength:number;
+  replyMessage = "";
   displayedColumns = ['message','name', 'address', 'city','zip','country','phone','email','actionsColumn'];
   dataSource= new MatTableDataSource(this.customerService.getCustomers());
   constructor(private customerService: CustomerService,public dialog: MatDialog){
     this.customer=new Customer();
+    this.messages=new Messages();
     this.arrayLength=this.customerService.getCustomers().length;
   }
   ngOnInit() {    
@@ -36,8 +41,20 @@ export class AppComponent {
     filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
     this.dataSource.filter = filterValue;
   }
+  customerid:number;
   SendMessage(customer: any):void {
     debugger;
+    this.customerid=customer.id;
+    this.MessageModel=this.customerService.getMessagesByCustomerId(this.customerid);
+  }
+  reply(){
+    debugger;
+    this.messages.title="";
+    this.messages.text=this.replyMessage;
+    this.customerService.createMessageByCustomerId(this.customerid,this.messages);
+    this.MessageModel=this.customerService.getMessagesByCustomerId(this.customerid);
+   
+    this.replyMessage = "";
   }
   openDialog(data:any): void {
     debugger;
@@ -69,6 +86,10 @@ debugger;
     });
   }
 }
+
+
+
+
 @Component({
   selector: 'dialog-overview-example-dialog',
   templateUrl: 'CustomerDialog.html',

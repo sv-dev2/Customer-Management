@@ -41,11 +41,31 @@
     float: right;
   }
   
-  #cdk-overlay-0,#cdk-overlay-1,#cdk-overlay-2,#cdk-overlay-3,#cdk-overlay-4
-  {
-    position: absolute !important;
-    top: 1px;
-    left: 10%;
-    background: white;
-  }
+  .right{
+    text-align: right;
+}
+.chatbox{
+    width:250px;
+    height:250px;
+    border: 1px solid #ccc;
+    padding: 16px;
+}
+.messages{
+    height:230px;
+    overflow: auto;
+}
+.input-container{
+    height: 30px;
+    margin-left: -16px;
+    margin-right: -16px;
+    vertical-align: middle;
+    padding-top: 10px;
+    border-top:1px solid #ccc;
+}
+.input-container .inputtext{
+    width:calc(100% - 100px);
+}
+.input-container button{
+    width: 90px;
+}
   

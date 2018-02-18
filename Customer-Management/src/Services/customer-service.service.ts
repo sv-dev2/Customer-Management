@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Customer } from '../Models/CustomerModel';
-import { Message } from '../Models/MessageModel';
+import { Messages } from '../Models/MessageModel';
 @Injectable()
 export class CustomerService {
 
   public CustomerModel: Customer[];
-  public MessageModel: Message[];
+  public MessageModel: Messages[];
   public customer:Customer;
-  public message:Message;
+  public message:Messages;
   constructor(){
-    
+    this.MessageModel=[];
   }
 
   getCustomers(): Customer[] {
@@ -17,7 +17,7 @@ export class CustomerService {
    return this.CustomerModel;
   }
   findByIdCustomer(id): Customer[]  {
-  return  this.CustomerModel.filter(word => word.id > id);
+  return  this.CustomerModel.filter(word => word.id == id);
   } 
 
 
@@ -41,19 +41,28 @@ export class CustomerService {
   deleteByIdCustomer(id): void {
    
   }
-  getMessagesByCustomerId(customerId): Message[] {
-    return  this.MessageModel.filter(word => word.customerId > customerId);
+  getMessagesByCustomerId(customerId): Messages[] {
+    debugger;
+    return  this.MessageModel.filter(word => word.customerId == customerId);
   }
-  findByIdMessageByCustomerId(customerId, id): Message[] {
-    return  this.MessageModel.filter(word => word.customerId > customerId && word.id==id);
+  findByIdMessageByCustomerId(customerId, id): Messages[] {
+    return  this.MessageModel.filter(word => word.customerId == customerId && word.id==id);
   }
   createMessageByCustomerId(customerId, data): void {
-   this.message.id=this.MessageModel.length+1;
+    debugger;
+    this.message=new Messages();
+    var arrlength=1;
+    if(this.MessageModel!=undefined)
+    {
+      arrlength=this.MessageModel.length+1;
+    }
+   this.message.id=arrlength;
    this.message.text=data.text;
    this.message.title=data.title;
-   this.message.customerId=data.customerId;
+   this.message.customerId=customerId;
    this.message.createdAt=new Date();
    this.message.updatedAt=new Date();
+   this.message.self=true;
    this.MessageModel.push(this.message);
   }
 
