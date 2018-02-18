@@ -9,4 +9,5 @@ export class Customer {
  email:string
  createdAt:Date;
  updatedAt:Date;
+ isDeleted:boolean;
 }

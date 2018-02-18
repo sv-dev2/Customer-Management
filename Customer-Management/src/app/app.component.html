@@ -25,34 +25,34 @@
 
     <!-- address Column -->
     <ng-container matColumnDef="address">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> address </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Address </mat-header-cell>
       <mat-cell *matCellDef="let element"> {{element.address}} </mat-cell>
     </ng-container>
 
     <!-- city Column -->
     <ng-container matColumnDef="city">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> city </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header> City </mat-header-cell>
       <mat-cell *matCellDef="let element"> {{element.city}} </mat-cell>
     </ng-container>
 
       <!-- zip Column -->
       <ng-container matColumnDef="zip">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> zip </mat-header-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Zip </mat-header-cell>
         <mat-cell *matCellDef="let element"> {{element.zip}} </mat-cell>
       </ng-container>
         <!-- country Column -->
     <ng-container matColumnDef="country">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> country </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Country </mat-header-cell>
       <mat-cell *matCellDef="let element"> {{element.country}} </mat-cell>
     </ng-container>
       <!-- phone Column -->
       <ng-container matColumnDef="phone">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> phone </mat-header-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Phone </mat-header-cell>
         <mat-cell *matCellDef="let element"> {{element.phone}} </mat-cell>
       </ng-container>
         <!-- email Column -->
     <ng-container matColumnDef="email">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> email </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Email </mat-header-cell>
       <mat-cell *matCellDef="let element"> {{element.email}} </mat-cell>
     </ng-container>
 
@@ -81,7 +81,7 @@
 <!-- [showFirstLastButtons]="true" -->
 </div>
 <!-- <app-chatbox style="float:right;"></app-chatbox> -->
-<div class="chatbox" style="float:right;">
+<div class="chatbox CustomChatBox" id='CustomChatBox' style="float:right">
   <div class="messages">
   
   <div *ngFor="let message of MessageModel" [class.right]="message.self">
@@ -90,7 +90,7 @@
   
   </div>
   <div class="input-container">
-  <input type="text" class="inputtext" [(ngModel)]="replyMessage">
-  <button class="replyBtn" (click)="reply()">Send</button>
+  <input type="text" style="height:25px;font-size:15px" class="inputtext" [(ngModel)]="replyMessage">
+  <button mat-raised-button  (click)="reply()">Send</button>
   </div>
   </div>

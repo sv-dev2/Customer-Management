@@ -14,7 +14,7 @@ export class CustomerService {
 
   getCustomers(): Customer[] {
    this.CustomerModel=ELEMENT_DATA;
-   return this.CustomerModel;
+   return this.CustomerModel.filter(m=>m.isDeleted==false);
   }
   findByIdCustomer(id): Customer[]  {
   return  this.CustomerModel.filter(word => word.id == id);
@@ -68,8 +68,8 @@ export class CustomerService {
 
 }
 const ELEMENT_DATA: Customer[] = [
-  {id: 1, name: 'Ashwani',address:'J7 kindlebit Solution',city:'Chandigarh',zip:143521,country:'India',phone:'9814256279',email:'ashwani.sharma@kindlebit.com',createdAt:new Date(),updatedAt:new Date()},
-  {id: 2, name: 'Prince',address:'From Ropar',city:'Ropar',zip:160101,country:'India',phone:'9877572389',email:'prince.chopra@kindlebit.com',createdAt:new Date(),updatedAt:new Date()}, 
-  {id: 3, name: 'Prince',address:'From Ropar',city:'Ropar',zip:160101,country:'India',phone:'9877572389',email:'prince.chopra@kindlebit.com',createdAt:new Date(),updatedAt:new Date()}, 
+  {id: 1, name: 'Ashwani',address:'J7 kindlebit Solution',city:'Chandigarh',zip:143521,country:'India',phone:'9814256279',email:'ashwani.sharma@kindlebit.com',createdAt:new Date(),updatedAt:new Date(),isDeleted:false},
+  {id: 2, name: 'Prince',address:'From Ropar',city:'Ropar',zip:160101,country:'India',phone:'9877572389',email:'prince.chopra@kindlebit.com',createdAt:new Date(),updatedAt:new Date(),isDeleted:false}, 
+  
   
 ];

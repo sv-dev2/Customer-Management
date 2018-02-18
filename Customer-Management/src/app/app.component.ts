@@ -44,16 +44,25 @@ export class AppComponent {
   customerid:number;
   SendMessage(customer: any):void {
     debugger;
+    document.getElementById("CustomChatBox").classList.remove("CustomChatBox");
     this.customerid=customer.id;
     this.MessageModel=this.customerService.getMessagesByCustomerId(this.customerid);
   }
   reply(){
     debugger;
-    this.messages.title="";
-    this.messages.text=this.replyMessage;
-    this.customerService.createMessageByCustomerId(this.customerid,this.messages);
-    this.MessageModel=this.customerService.getMessagesByCustomerId(this.customerid);
-   
+    if(this.customerid==undefined ||  this.customerid==0)
+    {
+      alert("Please select a customer.");
+    return false;
+    }
+    if(this.replyMessage!=undefined && this.replyMessage!="")
+    {
+      this.messages.title="";
+      this.messages.text=this.replyMessage;
+      this.customerService.createMessageByCustomerId(this.customerid,this.messages);
+      this.MessageModel=this.customerService.getMessagesByCustomerId(this.customerid);
+     
+    }    
     this.replyMessage = "";
   }
   openDialog(data:any): void {
@@ -152,5 +161,6 @@ export class DialogOverviewExampleDialog {
     this.snackBar.open(message, action, {
       duration: 3000,
     });
+    document.getElementsByTagName("simple-snack-bar").item(0).classList.add("customsnackbar");
   }
 }

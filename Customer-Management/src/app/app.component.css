@@ -51,7 +51,7 @@
     padding: 16px;
 }
 .messages{
-    height:230px;
+    height:210px;
     overflow: auto;
 }
 .input-container{
@@ -68,4 +68,16 @@
 .input-container button{
     width: 90px;
 }
-  
+.CustomChatBox{
+    display: none;
+  }
+  .mat-snack-bar-container.mat-snack-bar-center
+  {
+    background-color: red !important;
+    color: white !important;
+  }
+  .customsnackbar{
+    background-color: red !important;
+    color: white !important;
+    padding: 10px !important;
+  }
