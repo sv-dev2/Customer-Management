@@ -9,7 +9,13 @@
   
   <mat-table #table [dataSource]="dataSource" matSort>
 
-  
+   <!-- Name Column -->
+   <ng-container matColumnDef="message">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Message </mat-header-cell>
+    <mat-cell *matCellDef="let element"> <div class="example-header">       
+      <button  mat-raised-button (click)="SendMessage(element)">Message</button>
+    </div> </mat-cell>
+  </ng-container>
 
     <!-- Name Column -->
     <ng-container matColumnDef="name">
