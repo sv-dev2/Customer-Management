@@ -7,6 +7,7 @@ export class CustomerService {
   public CustomerModel: Customer[];
   public MessageModel: Message[];
   public customer:Customer;
+  public message:Message;
   constructor(){
     
   }
@@ -15,9 +16,11 @@ export class CustomerService {
    this.CustomerModel=ELEMENT_DATA;
    return this.CustomerModel;
   }
-  findByIdCustomer(id): void {
-   
-  }
+  findByIdCustomer(id): Customer[]  {
+  return  this.CustomerModel.filter(word => word.id > id);
+  } 
+
+
   createCustomer(data): void {    
     this.customer=new Customer();
     this.customer.id=this.CustomerModel.length+1;
@@ -38,14 +41,20 @@ export class CustomerService {
   deleteByIdCustomer(id): void {
    
   }
-  getMessagesByCustomerId(customerId): void {
-   
+  getMessagesByCustomerId(customerId): Message[] {
+    return  this.MessageModel.filter(word => word.customerId > customerId);
   }
-  findByIdMessageByCustomerId(customerId, id): void {
-   
+  findByIdMessageByCustomerId(customerId, id): Message[] {
+    return  this.MessageModel.filter(word => word.customerId > customerId && word.id==id);
   }
   createMessageByCustomerId(customerId, data): void {
-   
+   this.message.id=this.MessageModel.length+1;
+   this.message.text=data.text;
+   this.message.title=data.title;
+   this.message.customerId=data.customerId;
+   this.message.createdAt=new Date();
+   this.message.updatedAt=new Date();
+   this.MessageModel.push(this.message);
   }
 
 }

@@ -13,10 +13,12 @@ import {MatSnackBar} from '@angular/material';
 export class AppComponent {
   public CustomerModel: Customer[];
   public customer:Customer;
+  public arrayLength:number;
   displayedColumns = ['message','name', 'address', 'city','zip','country','phone','email','actionsColumn'];
   dataSource= new MatTableDataSource(this.customerService.getCustomers());
   constructor(private customerService: CustomerService,public dialog: MatDialog){
     this.customer=new Customer();
+    this.arrayLength=this.customerService.getCustomers().length;
   }
   ngOnInit() {    
   }
@@ -59,7 +61,9 @@ debugger;
       if(result!=undefined)
       {
         this.customerService.createCustomer(result);
-        this.dataSource= new MatTableDataSource(this.customerService.getCustomers());
+        this.CustomerModel=this.customerService.getCustomers();
+        this.dataSource= new MatTableDataSource(this.CustomerModel);
+        this.arrayLength=this.CustomerModel.length;
       }
      
     });
