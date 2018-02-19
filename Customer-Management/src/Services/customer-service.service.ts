@@ -33,13 +33,28 @@ export class CustomerService {
     this.customer.email=data.email;
     this.customer.createdAt=new Date();
     this.customer.updatedAt=new Date();
+    this.customer.isDeleted=false;
     this.CustomerModel.push(this.customer);
   }
   replaceByIdCustomer(id, data): void {
+    debugger;
+    var currentrecord = this.CustomerModel.filter(p => p.id === id);
+    if (currentrecord.length == 1) {
+      currentrecord[0].name = data.name;
+      currentrecord[0].address = data.address;
+      currentrecord[0].city = data.city;
+      currentrecord[0].zip = data.zip;
+      currentrecord[0].country = data.country;
+      currentrecord[0].phone = data.phone;
+      currentrecord[0].email = data.email;
+      currentrecord[0].updatedAt = new Date();
+    }
+
    
   }
   deleteByIdCustomer(id): void {
-   
+    let currentcustomer = this.CustomerModel.filter(p => p.id === id)[0];
+    currentcustomer.isDeleted=true;
   }
   getMessagesByCustomerId(customerId): Messages[] {
     debugger;

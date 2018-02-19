@@ -65,7 +65,7 @@
       <mat-cell *matCellDef="let row">
           <div class="example-header" style="width:300px">
           <button style="display:inline-block;min-width:60px"  mat-raised-button (click)="openDialog(row)">Edit</button>
-          <button style="display:inline-block;min-width:60px"   mat-raised-button (click)="cancelOrDelete()">Delete</button>
+          <button style="display:inline-block;min-width:60px"   mat-raised-button (click)="cancelOrDelete(row.id)">Delete</button>
           </div>
       </mat-cell>
   </ng-container>

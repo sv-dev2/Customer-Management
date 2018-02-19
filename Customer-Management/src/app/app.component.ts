@@ -72,10 +72,14 @@ export class AppComponent {
     {
       this.customer=data;
     }
+    else
+    {
+      this.customer= new Customer();
+    }
     let dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
       disableClose:true,
       width: '250px',
-      data: { name: this.customer.name,address: this.customer.address ,city: this.customer.city
+      data: { id:this.customer.id, name: this.customer.name,address: this.customer.address ,city: this.customer.city
       ,zip:this.customer.zip,country:this.customer.country,phone:this.customer.phone,email:this.customer.email
       }
     });
@@ -86,13 +90,27 @@ debugger;
       debugger;
       if(result!=undefined)
       {
+        if(result.id!=0 && result.id!=undefined)
+        {
+          this.customerService.replaceByIdCustomer(result.id, result);
+        }
+        else
+        {
         this.customerService.createCustomer(result);
+        }
         this.CustomerModel=this.customerService.getCustomers();
+        debugger;
+        
         this.dataSource= new MatTableDataSource(this.CustomerModel);
         this.arrayLength=this.CustomerModel.length;
       }
      
     });
+  }
+
+  cancelOrDelete(id: number) {
+    this.customerService.deleteByIdCustomer(id);
+    this.dataSource = new MatTableDataSource(this.customerService.getCustomers());
   }
 }
 
