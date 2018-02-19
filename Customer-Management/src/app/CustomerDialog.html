@@ -1,38 +1,106 @@
 
-<div mat-dialog-content style=" position: absolute !important;
-top: 1px;
-background: white;height:600px !important">
+<div class="global-modal-main">
+<div class="global-modal" mat-dialog-content style="background: white;">
+ <div class="field-label">
   <p>Name</p>
   <mat-form-field>
-    <input style="border: 1px inset #EBE9ED !important;height: 26px;" matInput [(ngModel)]="data.name">
+    <input matInput [(ngModel)]="data.name">
   </mat-form-field>
-  <p>Address</p>
+ </div>
+ <div class="field-label">
+   <p>Address</p>
   <mat-form-field>
-    <input style="border: 1px inset #EBE9ED !important;height: 26px;"  matInput [(ngModel)]="data.address">
+    <input matInput [(ngModel)]="data.address">
   </mat-form-field>
+  </div>
+  <div class="field-label">
   <p>City</p>
   <mat-form-field>
-    <input style="border: 1px inset #EBE9ED !important;height: 26px;"  matInput [(ngModel)]="data.city">
+    <input matInput [(ngModel)]="data.city">
   </mat-form-field>
+  </div>
+  <div class="field-label">
   <p>Zip</p>
   <mat-form-field>
-    <input style="border: 1px inset #EBE9ED !important;height: 26px;"  matInput [(ngModel)]="data.zip">
+    <input matInput [(ngModel)]="data.zip">
   </mat-form-field>
+  </div>
+  <div class="field-label">
   <p>Country</p>
   <mat-form-field>
-    <input style="border: 1px inset #EBE9ED !important;height: 26px;"  matInput [(ngModel)]="data.country">
+    <input matInput [(ngModel)]="data.country">
   </mat-form-field>
+  </div>
+  <div class="field-label">
   <p>Phone</p>
   <mat-form-field>
-    <input style="border: 1px inset #EBE9ED !important;height: 26px;"  matInput [(ngModel)]="data.phone">
+    <input  matInput [(ngModel)]="data.phone">
   </mat-form-field>
+  </div>
+  <div class="field-label">
   <p>Email</p>
   <mat-form-field>
-    <input style="border: 1px inset #EBE9ED !important;height: 26px;"  matInput [(ngModel)]="data.email">
+    <input matInput [(ngModel)]="data.email">
   </mat-form-field>
+  </div>
 </div>
 <div mat-dialog-actions>
   <button mat-button (click)="onNoClick()">Cancel</button>
   <!-- <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button> -->
-  <button mat-button (click)="SaveCustomer(data)" cdkFocusInitial>Ok</button>
+  <button mat-button (click)="SaveCustomer(data)" cdkFocusInitial class="ok-btn">Ok</button>
 </div>
+</div>
+
+<style>
+
+.global-modal-main[_ngcontent-c19] {
+    position: fixed;
+    top: 7%;
+    left: 0;
+    right: 0;
+    max-width: 500px;
+    box-shadow: 0 0 3px 2px #ddd;
+    margin: auto;
+    box-sizing: border-box;
+    width: 100%;
+}
+.global-modal-main .global-modal {
+    margin: 0;
+    padding: 15px;
+}
+
+.global-modal-main .mat-dialog-actions:last-child{margin:0;}
+.cdk-global-overlay-wrapper{box-shadow:inherit;}
+.field-label{display:inline-block; width: 100%; margin-bottom:15px }
+.field-label p {
+    font-family: arial;
+    font-size: 13px;
+    margin: 0 0 3px;
+    color: #444;
+}
+.field-label input {
+    border: 1px solid #ccc;
+    height: 30px;
+    width: 100%;
+    padding: 0 5px;
+    box-sizing: border-box;     border-radius: 2px; color: #777
+}
+.field-label .mat-form-field{width:100%;}
+.global-modal-main .mat-dialog-actions[_ngcontent-c19]:last-child {
+    margin: 0;
+    text-align: center;
+    display: inline-block;
+    width: 100%;     background: #fff;     border-top: 1px solid #ddd;
+}
+
+.global-modal-main .mat-dialog-actions button.mat-button.ok-btn{background:#3b5998 ; color:#fff;}
+.global-modal-main:before{content:""; top: 0; bottom: 0; background: #000; opacity: 0.5; left:0; right: 0; position: fixed;     z-index: -1;}
+
+::ng-deep .cdk-global-overlay-wrapper{
+    position: fixed;
+    bottom: 0;
+    background: red; color: #fff;
+}
+::ng-deep .cdk-global-overlay-wrapper button{color: #fff;}
+
+</style>

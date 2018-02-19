@@ -42,10 +42,12 @@ export class AppComponent {
     this.dataSource.filter = filterValue;
   }
   customerid:number;
+  customerName:string;
   SendMessage(customer: any):void {
     debugger;
     document.getElementById("CustomChatBox").classList.remove("CustomChatBox");
     this.customerid=customer.id;
+    this.customerName=customer.name;
     this.MessageModel=this.customerService.getMessagesByCustomerId(this.customerid);
   }
   reply(){

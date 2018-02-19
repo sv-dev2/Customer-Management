@@ -81,3 +81,45 @@
     color: white !important;
     padding: 10px !important;
   }
+
+  
+
+.input-container[_ngcontent-c9] {
+    height: auto;
+    background: #ddd;
+    margin:0;
+    vertical-align: middle;
+    padding:5px;
+    border-top: 1px solid #ccc; display: inline-block; width:100%; box-sizing:border-box;
+}
+.chatbox[_ngcontent-c9]{padding:0px 0 }
+.chat-box-header {
+  background: #3b5998; height: 30px;
+}
+
+.input-container[_ngcontent-c9] button[_ngcontent-c9] {
+  background: #3b5998;
+  color: #fff;
+  width: auto;
+  padding: 0 15px;
+  min-width: inherit; box-shadow:inherit;
+}
+
+
+.input-container input[type="text"] {
+  height: 37px;
+  min-width: 169px;
+  border-radius: 2px;
+  border: 1px solid #ccc;
+  padding: 0 6px;
+  box-sizing: border-box;
+}
+.chatbox[_ngcontent-c9]{height: auto}
+.chatbox[_ngcontent-c9][_ngcontent-c9][_ngcontent-c9] {
+  right: 10px;
+  z-index: 999;
+  background: #fff;
+  position:absolute; bottom:0;padding:0;     box-shadow: 0 0 3px 1px #ddd;
+}
+.messages{padding:3px 5px }
+

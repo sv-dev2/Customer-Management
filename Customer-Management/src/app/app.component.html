@@ -81,7 +81,8 @@
 <!-- [showFirstLastButtons]="true" -->
 </div>
 <!-- <app-chatbox style="float:right;"></app-chatbox> -->
-<div class="chatbox CustomChatBox" id='CustomChatBox' style="float:right">
+<div class="chatbox CustomChatBox" id='CustomChatBox'>
+  <div class="chat-box-header" style="color: white;padding:5px 5px 0px 5px">{{customerName}}</div>
   <div class="messages">
   
   <div *ngFor="let message of MessageModel" [class.right]="message.self">
@@ -90,7 +91,7 @@
   
   </div>
   <div class="input-container">
-  <input type="text" style="height:25px;font-size:15px" class="inputtext" [(ngModel)]="replyMessage">
+  <input type="text" class="inputtext" [(ngModel)]="replyMessage">
   <button mat-raised-button  (click)="reply()">Send</button>
   </div>
   </div>

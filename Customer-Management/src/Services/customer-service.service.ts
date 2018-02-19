@@ -83,8 +83,8 @@ export class CustomerService {
 
 }
 const ELEMENT_DATA: Customer[] = [
-  {id: 1, name: 'Ashwani',address:'J7 kindlebit Solution',city:'Chandigarh',zip:143521,country:'India',phone:'9814256279',email:'ashwani.sharma@kindlebit.com',createdAt:new Date(),updatedAt:new Date(),isDeleted:false},
-  {id: 2, name: 'Prince',address:'From Ropar',city:'Ropar',zip:160101,country:'India',phone:'9877572389',email:'prince.chopra@kindlebit.com',createdAt:new Date(),updatedAt:new Date(),isDeleted:false}, 
+  {id: 1, name: 'David',address:'J7 kindlebit Solution',city:'Chandigarh',zip:143521,country:'India',phone:'9814256279',email:'david.price@kindlebit.com',createdAt:new Date(),updatedAt:new Date(),isDeleted:false},
+  {id: 2, name: 'Bob',address:'From Ropar',city:'Ropar',zip:160101,country:'India',phone:'9877572389',email:'alan@sevenverbs.com',createdAt:new Date(),updatedAt:new Date(),isDeleted:false}, 
   
   
 ];
